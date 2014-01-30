@@ -3,18 +3,17 @@
 // ----------------------------------------------------------------------------
 $value-color:              rgba(255, 255, 255, 0.8);
 $background-color:         #78A300;
-$background-default-color: #e5e5e5;
-$background-error-color:   #903d3d;
-$background-passed-color:  #6fb269;
-$background-started-color: #84c0d7;
-$background-queued-color:  #84c0d7;
+$background-default-color: #E5E5E5;
+$background-error-color:   #E74C3C;
+$background-passed-color:  #2ecc71;
+$background-started-color: #3498db;
+$background-queued-color:  #3498db;
 $background-broken-color:  #222426;
-$background-no-test-color: #d2ab59;
+$background-no-test-color: #f39c12;
 
 $title-color:       rgba(255, 255, 255, 0.8);
 $label-color:       rgba(255, 255, 255, 0.8);
 $moreinfo-color:    rgba(255, 255, 255, 0.8);
-
 
 // ----------------------------------------------------------------------------
 // Font
@@ -45,8 +44,8 @@ $moreinfo-color:    rgba(255, 255, 255, 0.8);
 
   .title {
     color: $title-color;
-    font-size: 2.0em;
-    font-weight: bolder;
+    font-size: 30px;
+    font-weight: 400;
   }
 
   ol, ul {
@@ -84,22 +83,29 @@ $moreinfo-color:    rgba(255, 255, 255, 0.8);
     display: block;
     font-weight: 600;
     color: $value-color;
-    font-size: 24px;
+    padding-top: 1em;
+    font-size: 16px;
     word-wrap: break-word;
     width: 100%;
     margin: 0 auto;
-    font-size: 1.0em;
+    font-weight: 400;
   }
 
-.committer {
+  .committer {
     text-align: center;
     display: block;
     color: $value-color;
-    font-size: 24px;
+    margin-top: 10px;
+    padding-top: 12px;
+    font-size: 18px;
+    font-style: italic;
     word-wrap: break-word;
     width: 100%;
     margin: 0 auto;
-    font-size: 1.3em;
+  }
+ 
+  .committer:before{
+    content: '- ';
   }
 
   .updated-at {
@@ -113,8 +119,8 @@ $moreinfo-color:    rgba(255, 255, 255, 0.8);
   div.climate {
     font-family: 'ClimaconsRegular';
     position: absolute;
-    left: 30px;
-    bottom: 14px;
+    right: 14px;
+    top: 14px;
     font-size: 3.5em;
     color: rgba(255, 255, 255, 0.9)
   }

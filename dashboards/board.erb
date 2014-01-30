@@ -2,8 +2,8 @@
     $(function() {
         // These settings override the defaults set in application.coffee. You can do this on a per dashboard basis.
         //Dashing.gridsterLayout('[{"col":2,"row":1},{"col":1,"row":1},{"col":3,"row":1},{"col":2,"row":2},{"col":3,"row":2},{"col":1,"row":2},{"col":5,"row":1},{"col":4,"row":2},{"col":2,"row":3}]')
-        Dashing.widget_base_dimensions = [370, 340]
-        Dashing.numColumns = 5
+        Dashing.widget_base_dimensions = [370, 320]
+        Dashing.numColumns = 4
     });
 </script>
 
@@ -12,65 +12,71 @@
 
 <div class="gridster">
   <ul>
-<!-- 
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-view="Image" data-image="/logo.png" style="background: white;"></div>
-    </li>
- -->
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="bitcoin" data-view="Number" data-title="Bitcoin" data-suffix="€"></div>
-    </li>
 
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-view="Clock"></div>
       <i class="icon-time icon-background"></i>
     </li>
 
-    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
-      <div data-id="newrelic_rpm" data-view="Graph" data-title="Trafic" data-moreinfo="RPM"></div>
-    </li>
 
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="newrelic_cpu" data-view="Number" data-title="CPU" data-suffix="%"></div>
-    </li>
-
-    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
-      <div data-id="newrelic_response_time" data-view="Graph" data-title="Temps de réponse" data-moreinfo="ms"></div>
+    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="quote" data-view="Text" style="background-color: #9b59b6;"></div>
+      <i class="icon-quote-left icon-background"></i>
     </li>
 
 
-    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
-      <div data-id="newrelic_response_time" data-view="Graph" data-title="Temps de réponse" data-moreinfo="ms"></div>
+    <li data-row="1" data-col="3" data-sizex="1" data-sizey="1">
+      <div data-id="rdv_taken" data-view="Number" data-title="Rendez-vous pris" style="background-color: #e74c3c"></div>
+      <i class="icon-calendar icon-background"></i>
     </li>
 
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+    <li data-row="1" data-col="4" data-sizex="1" data-sizey="1">
+      <div data-id="total_users" data-view="Number" data-title="Utilisateurs" style="background-color: #e67e22"></div>
+      <i class="icon-user icon-background"></i>
+    </li>
+
+
+
+    <li data-row="2" data-col="1" data-sizex="1" data-sizey="2">
+      <div data-id="newrelic_load" data-view="Meter" data-title="Load" style="background-color:#34495e"></div>
+    </li>
+
+
+
+<!--     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="newrelic_ram" data-view="Number" data-title="RAM" data-moreinfo="Mo"></div>
     </li>
-
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="dashing-circleci-ClicRDV_master" data-view="CircleCi" data-unordered="true" data-title="Jenkins master"></div>
+ -->
+    <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="dashing-circleci-ClicRDV_master" data-view="CircleCi" data-unordered="true" data-title="Master"></div>
     </li>
 
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="dashing-circleci-ClicRDV_beta" data-view="CircleCi" data-unordered="true" data-title="Jenkins beta"></div>
+    <li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
+      <div data-id="dashing-circleci-ClicRDV_beta" data-view="CircleCi" data-unordered="true" data-title="Beta"></div>
     </li>
 
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="dashing-circleci-ClicRDV_alpha" data-view="CircleCi" data-unordered="true" data-title="Jenkins alpha"></div>
+    <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">
+      <div data-id="dashing-circleci-ClicRDV_alpha" data-view="CircleCi" data-unordered="true" data-title="Alpha"></div>
     </li>
 
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="dashing-circleci-ClicRDV_JS_beta" data-view="CircleCi" data-unordered="true" data-title="Jenkins JS beta"></div>
+    <li data-row="3" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="bitcoin" data-view="Number" data-title="Bitcoin" data-suffix="€" style="background-color:#16a085"></div>
+      <i class="icon-bitcoin icon-background"></i>
     </li>
 
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="dashing-circleci-ClicRDV_JS_alpha" data-view="CircleCi" data-unordered="true" data-title="Jenkins JS alpha"></div>
+    <li data-row="3" data-col="3" data-sizex="1" data-sizey="1">
+      <div data-id="dashing-circleci-ClicRDV_JS_beta" data-view="CircleCi" data-unordered="true" data-title="Beta (JS)"></div>
     </li>
+
+    <li data-row="3" data-col="4" data-sizex="1" data-sizey="1">
+      <div data-id="dashing-circleci-ClicRDV_JS_alpha" data-view="CircleCi" data-unordered="true" data-title="Alpha(JS)"></div>
+    </li>
+
+
 
     <!--<li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="dashing-circleci-ClicRDV_pr" data-view="CircleCi" data-unordered="true" data-title="Jenkins Pull Request"></div>
     </li>-->
 
   </ul>
-  <center><div style="font-size: 12px">Try this: curl -d '{ "auth_token": "YOUR_AUTH_TOKEN", "text": "Hey, Look what I can do!" }' \http://<%=request.host%>:<%=request.port%>/widgets/welcome</div></center>
 </div>

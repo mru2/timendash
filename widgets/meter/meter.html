@@ -1,6 +1,13 @@
-<h1 class="title" data-bind="title"></h1>
+<div class="top">
+  <h1 class="title">CPU (%)</h1>
+  <input class="meter" data-angleOffset=-125 data-angleArc=250 data-width=200 data-readOnly=true data-bind-value="value | shortenedNumber" data-bind-data-min-top="min" data-bind-data-max-top="max">
+</div>
 
-<input class="meter" data-angleOffset=-125 data-angleArc=250 data-width=200 data-readOnly=true data-bind-value="value | shortenedNumber" data-bind-data-min="min" data-bind-data-max="max">
+
+<div class="bottom">
+  <input class="meter" data-angleOffset=-125 data-angleArc=250 data-width=200 data-readOnly=true data-bind-value="value | shortenedNumber" data-bind-data-min-bottom="min" data-bind-data-max-bottom="max">
+  <h1 class="title">RAM (%)</h1>
+</div>
 
 <p class="more-info" data-bind="moreinfo"></p>
 

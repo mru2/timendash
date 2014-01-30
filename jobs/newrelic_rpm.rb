@@ -11,14 +11,16 @@ API_KEY = ENV['NEWRELIC_API_KEY']
 APP_NAME = ENV['NEWRELIC_APP_NAME']
 
 # Class for handling meters
-class Meter
+class DoubleMeter
   def initialize
-    @value = 0
+    @value_top = 0
+    @value_bottom = 0
   end
 
-  def push(value)
-    @value = value
-    {:value => @value}
+  def push(values)
+    @value_top = values.first
+    @value_bottom = values.last
+    {:'value-top' => @value_top, :'value-bottom' => @value_bottom}
   end
 end
 
@@ -67,27 +69,19 @@ end
 
 # Initialize metrics
 
-rpm = Graph.new
-response_time = Graph.new
-cpu_load = Numeric.new
-ram_load = Numeric.new
+rpm = Numeric.new
+response_time = Numeric.new
+server_load = DoubleMeter.new
+
 
 SCHEDULER.every '30s', :first_in => 0 do |job|
  
   metrics = app.threshold_values
 
-  # Req Per Min
-  send_event('newrelic_rpm', rpm.push(app.metric_value("Throughput")))
-
-  # Response time
-  send_event('newrelic_response_time', response_time.push(app.metric_value("Response Time")))
-
   # CPU and RAM load
-  send_event('newrelic_cpu', cpu_load.push(app.metric_value("CPU")))
-  send_event('newrelic_ram', ram_load.push(app.metric_value("Memory")))
+  cpu = (app.metric_value("CPU") / 10).round(1)
+  ram = (app.metric_value("Memory") / (4 * 12 * 1024) * 100).round(1)
 
-  # app.threshold_values.each do |v|
-  #   send_event("rpm_" + v.name.downcase.gsub(/ /, '_'), { value: v.metric_value })
-  # end
- 
+  send_event('newrelic_load', server_load.push([cpu, ram]))
+
 end
