@@ -10,6 +10,18 @@ API_KEY = ENV['NEWRELIC_API_KEY']
 # Monitored application
 APP_NAME = ENV['NEWRELIC_APP_NAME']
 
+# Class for handling meters
+class Meter
+  def initialize
+    @value = 0
+  end
+
+  def push(value)
+    @value = value
+    {:value => @value}
+  end
+end
+
 
 # Class for handling numeric values
 class Numeric
@@ -54,18 +66,20 @@ def app.metric_value(metric_name)
 end
 
 # Initialize metrics
-response_time = Numeric.new
-cpu_load = Graph.new
-ram_load = Graph.new
 
-SCHEDULER.every '5s', :first_in => 0 do |job|
+rpm = Graph.new
+response_time = Graph.new
+cpu_load = Numeric.new
+ram_load = Numeric.new
+
+SCHEDULER.every '30s', :first_in => 0 do |job|
  
   metrics = app.threshold_values
 
-  # Req Per Min : meter
-  send_event('newrelic_rpm', {:value => app.metric_value("Throughput")})
+  # Req Per Min
+  send_event('newrelic_rpm', rpm.push(app.metric_value("Throughput")))
 
-  # Response time : 
+  # Response time
   send_event('newrelic_response_time', response_time.push(app.metric_value("Response Time")))
 
   # CPU and RAM load
