@@ -1,38 +1,72 @@
-<% content_for :title do %>ClicRDV Dashboard<% end %>
+<script type='text/javascript'>
+    $(function() {
+        // These settings override the defaults set in application.coffee. You can do this on a per dashboard basis.
+        //Dashing.gridsterLayout('[{"col":2,"row":1},{"col":1,"row":1},{"col":3,"row":1},{"col":2,"row":2},{"col":3,"row":2},{"col":1,"row":2},{"col":5,"row":1},{"col":4,"row":2},{"col":2,"row":3}]')
+        Dashing.widget_base_dimensions = [370, 340]
+        Dashing.numColumns = 5
+    });
+</script>
 
+
+<% content_for :title do %>ClicRDV Dashboard<% end %>
 
 <div class="gridster">
   <ul>
+
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="welcome" data-view="Text" data-title="ClicRDV Dashboard" data-text="Hello." data-moreinfo="World."></div>
+      <div data-view="Image" data-image="/logo.png" style="background: white;"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-view="Clock"></div>
+      <i class="icon-time icon-background"></i>
     </li>
 
     <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
       <div data-id="newrelic_rpm" data-view="Graph" data-title="Trafic" data-moreinfo="RPM"></div>
-    </li>    
-
-    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
-      <div data-id="newrelic_response_time" data-view="Graph" data-title="Temps de réponse" data-moreinfo="ms"></div>
     </li>
 
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="newrelic_cpu" data-view="Number" data-title="CPU" data-suffix="%"></div>
     </li>
 
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+      <div data-id="newrelic_response_time" data-view="Graph" data-title="Temps de réponse" data-moreinfo="ms"></div>
+    </li>
+
+
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+      <div data-id="newrelic_response_time" data-view="Graph" data-title="Temps de réponse" data-moreinfo="ms"></div>
+    </li>
+
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="newrelic_ram" data-view="Number" data-title="RAM" data-moreinfo="Mo"></div>
     </li>
 
-      
-
-<!--     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="synergy" data-view="Meter" data-title="Synergy" data-min="0" data-max="100"></div>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="dashing-circleci-ClicRDV_master" data-view="CircleCi" data-unordered="true" data-title="Jenkins master"></div>
     </li>
 
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="2">
-      <div data-id="buzzwords" data-view="List" data-unordered="true" data-title="Buzzwords" data-moreinfo="# of times said around the office"></div>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="dashing-circleci-ClicRDV_beta" data-view="CircleCi" data-unordered="true" data-title="Jenkins beta"></div>
     </li>
 
- -->
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="dashing-circleci-ClicRDV_alpha" data-view="CircleCi" data-unordered="true" data-title="Jenkins alpha"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="dashing-circleci-ClicRDV_JS_beta" data-view="CircleCi" data-unordered="true" data-title="Jenkins JS beta"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="dashing-circleci-ClicRDV_JS_alpha" data-view="CircleCi" data-unordered="true" data-title="Jenkins JS alpha"></div>
+    </li>
+
+    <!--<li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="dashing-circleci-ClicRDV_pr" data-view="CircleCi" data-unordered="true" data-title="Jenkins Pull Request"></div>
+    </li>-->
+
   </ul>
+  <center><div style="font-size: 12px">Try this: curl -d '{ "auth_token": "YOUR_AUTH_TOKEN", "text": "Hey, Look what I can do!" }' \http://<%=request.host%>:<%=request.port%>/widgets/welcome</div></center>
 </div>

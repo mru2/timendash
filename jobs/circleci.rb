@@ -10,6 +10,12 @@ JENKINS_PWD= ENV['JENKINS_PASSWORD']
 
 require 'jenkins_api_client'
 
+# Jenkins Resulsts possible
+# SUCCESS
+# UNSTABLE
+# FAILURE
+# NOT_BUILT
+# ABORTED
 def client
   @client ||= JenkinsApi::Client.new(:server_url => 'https://jenkins.clicrdv.com/',
                                    :ssl => true,
@@ -44,7 +50,7 @@ end
 
 def get_climate(builds = [])
   return '|' if builds.blank?
-  statuses = builds[0..10].map { |build| build['status'] if build['branch'] == 'master' }.compact
+  statuses = builds.map { |build| get_build_state build }.compact
   weight = nil
 
   statuses.each do |status|
@@ -63,14 +69,14 @@ def get_climate(builds = [])
   end
 end
 
-def get_build_info(build={})
+def get_build_info(build={}, latests)
   return broken_or_no_builds if build.blank?
   {
     label: "Build ##{build['number']}",
     value: get_build_comments(build).last,
     committer: get_build_commiters(build).last,
-    state: build['result'] ? build['result'].downcase : 'running',
-    climate: ''
+    state: get_build_state(build),
+    climate: get_climate(latests)
   }
 end
 
@@ -84,14 +90,21 @@ def get_build_commiters(build={})
   build_change_sets.map { |change| change['author']['fullName'] }
 end
 
+def get_build_state(build)
+  build_result = build['result']
+  return 'running' if build_result.nil?
+  return 'failed' if build_result.downcase == 'failure'
+  build_result.downcase
+end
 
 builds = client.job.list_all
 
-SCHEDULER.every '30s', :first_in => 0 do |job|
+SCHEDULER.every '5m', :first_in => 0 do |job|
   builds.each do |build|
     build_result = @client.api_get_request @client.job.list_details(build)['lastBuild']['url']
+    latest_builds = @client.job.list_details(build)['builds'].first(5).map { |b| @client.api_get_request b['url'] }
 
-    build_info = get_build_info(build_result)
+    build_info = get_build_info(build_result, latest_builds)
     send_event("dashing-circleci-#{build}", { items: [build_info] })
   end
 
