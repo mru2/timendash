@@ -1,0 +1,18 @@
+$title-color:       rgba(255, 255, 255, 0.7);
+
+.widget-current-stats {
+
+  .title {
+    color: $title-color;
+    margin-bottom: 0;
+  }
+
+  .value{
+    font-size: 2.8em;
+  }
+
+  .updated-at {
+    color: rgba(0, 0, 0, 0.3);
+  }
+
+}
