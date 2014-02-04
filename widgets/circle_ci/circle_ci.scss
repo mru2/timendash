@@ -30,6 +30,9 @@ $moreinfo-color:    rgba(255, 255, 255, 0.8);
 // ----------------------------------------------------------------------------
 // Widget-list styles
 // ----------------------------------------------------------------------------
+.widget-circle-ci.widget {
+  width: 40%;
+}
 .widget-circle-ci {
 
   background-color: $background-default-color;
