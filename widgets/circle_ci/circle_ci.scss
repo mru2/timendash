@@ -113,6 +113,7 @@ $moreinfo-color:    rgba(255, 255, 255, 0.8);
 
   .updated-at {
     color: rgba(0, 0, 0, 0.3);
+    display: block;
   }
 
   .more-info {
@@ -121,9 +122,6 @@ $moreinfo-color:    rgba(255, 255, 255, 0.8);
 
   div.climate {
     font-family: 'ClimaconsRegular';
-    position: absolute;
-    right: 14px;
-    top: 14px;
     font-size: 3.5em;
     color: rgba(255, 255, 255, 0.9)
   }
