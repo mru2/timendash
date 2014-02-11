@@ -1,0 +1,67 @@
+// ----------------------------------------------------------------------------
+// Sass declarations
+// ----------------------------------------------------------------------------
+$title-color:       rgba(255, 255, 255, 0.7);
+$moreinfo-color:    rgba(255, 255, 255, 0.7);
+
+// ----------------------------------------------------------------------------
+// Widget-text styles
+// ----------------------------------------------------------------------------
+.widget-sochi {
+
+  .title {
+    color: $title-color;
+  }
+
+  .line{
+    text-align: left;
+    height: 1.5em;
+  }
+
+
+  .rank{
+    &:after{
+      content: '. ';
+    }
+    font-size: 0.8em;
+  }
+
+
+  .country{
+    font-weight: 400;
+  }
+
+  .medals{
+    float: right;
+  }
+
+
+  .medal{
+
+    text-align: center;
+    border-radius: 100%;
+    font-size: 0.8em;
+    font-weight: 800;
+    color: white;
+    height: 1.5em;
+    width: 1.5em;
+    display: inline-block;
+    line-height: 1.5em;
+    margin: 0px 2px;
+
+    &.gold{
+      background-color: #CFB53B;
+      color: #333;
+    };
+
+    &.silver{
+      background-color: #E6E8FA;
+      color: #333;
+    };
+
+    &.bronze{
+      background-color: #8C7853;
+    };
+  }
+
+}

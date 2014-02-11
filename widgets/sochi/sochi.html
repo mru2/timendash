@@ -1,0 +1,12 @@
+<h1 class="title" data-bind="title"></h1>
+
+<div data-foreach-medal="medals" class="line">
+  <span class="rank" data-bind="medal.rank"></span>
+  <span class="country" data-bind="medal.country"></span>
+
+  <div class="medals">
+    <span class="medal gold" data-bind="medal.gold"></span>
+    <span class="medal silver" data-bind="medal.silver"></span>
+    <span class="medal bronze" data-bind="medal.bronze"></span>
+  </div>
+</div>
