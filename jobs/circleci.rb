@@ -72,8 +72,8 @@ end
 def get_build_info(build={}, latests)
   return broken_or_no_builds if build.blank?
   {
-    label: "Build ##{build['number']}",
-    value: get_build_comments(build).last,
+    # label: "Build ##{build['number']}",
+    # value: get_build_comments(build).last,
     committer: get_build_commiters(build).last,
     state: get_build_state(build),
     climate: get_climate(latests)
