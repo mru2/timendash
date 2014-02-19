@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 gem 'dashing'
 
+# Javascript runtime : required
+gem 'therubyracer'
+
 gem 'dotenv'
 gem 'httparty'
 
