@@ -1,5 +1,9 @@
 require 'httparty'
 
+# Environment variables
+require 'dotenv'
+Dotenv.load
+
 login = ENV['CLICRDV_LOGIN']
 password = ENV['CLICRDV_PASSWORD']
 host = ENV['CLICRDV_HOST']

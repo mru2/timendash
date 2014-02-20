@@ -19,7 +19,7 @@ def format_stat(stat)
   }
 end
 
-SCHEDULER.every '15s', :first_in => 0 do |job|
+SCHEDULER.every '5m', :first_in => 0 do |job|
 
   # Get the latest medal stats
   medal_stats = get_medal_stats
