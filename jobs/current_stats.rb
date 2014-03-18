@@ -6,7 +6,7 @@ Dotenv.load
 
 login = ENV['CLICRDV_LOGIN']
 password = ENV['CLICRDV_PASSWORD']
-host = ENV['CLICRDV_HOST']
+host = ENV['CLICRDV_ADMIN_HOST']
 current_connection_path = ENV['CLICRDV_CONNECTIONS_PATH']
 
 SCHEDULER.every '5m', :first_in => 0 do |job|

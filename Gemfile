@@ -13,6 +13,9 @@ gem 'twitter', '>= 5.0.0'
 
 gem 'jenkins_api_client', '>= 0.14.0'
 
+# Time parsing
+gem 'activesupport'
+
 
 # NewRelic stats
 gem 'activeresource'

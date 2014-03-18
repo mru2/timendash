@@ -1,5 +1,7 @@
 FROM ubuntu:precise
 
+# Update to force a full rebuild
+ENV LAST_UPDATED 2014-03-08
 
 # Install RVM and ruby 2.0.0
 RUN apt-get update
