@@ -5,8 +5,8 @@ require 'active_support'
 require 'dotenv'
 Dotenv.load
 
-login = ENV['CLICRDV_LOGIN']
-password = ENV['CLICRDV_PASSWORD']
+login = ENV['CLICRDV_API_LOGIN']
+password = ENV['CLICRDV_API_PASSWORD']
 host = ENV['CLICRDV_API_HOST']
 errors_api_path = ENV['CLICRDV_ERRORS_API_PATH']
 

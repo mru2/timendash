@@ -10,12 +10,10 @@ $moreinfo-color:    rgba(255, 255, 255, 0.7);
 // ----------------------------------------------------------------------------
 .widget-errors {
 
+  word-break: break-all;
+
   .title {
     color: $title-color;
-  }
-
-  strong{
-    font-size: 0.8em;
   }
 
 }
