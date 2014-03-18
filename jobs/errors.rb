@@ -7,7 +7,7 @@ Dotenv.load
 
 login = ENV['CLICRDV_LOGIN']
 password = ENV['CLICRDV_PASSWORD']
-host = ENV['CLICRDV_HOST']
+host = ENV['CLICRDV_API_HOST']
 errors_api_path = ENV['CLICRDV_ERRORS_API_PATH']
 
 def truncate(s, length = 30, ellipsis = '...')
